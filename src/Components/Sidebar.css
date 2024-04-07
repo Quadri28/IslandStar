@@ -1,0 +1,11 @@
+.active-sidebar-link{
+    background-color: #0452C8;
+    color: #fff !important;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 5px;
+}
+a{
+    text-decoration: none;
+    font-size: 14px;
+}
