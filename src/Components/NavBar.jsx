@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import Logo from '../assets/Logo.png'
 
 
-const Navbar = () => {
+const NavBar = () => {
       const [showNavbar, setShowNavbar] = useState(false);
       const [active, setActive] = useState("");
     
@@ -111,4 +111,4 @@ const Navbar = () => {
     };
     
 
-export default Navbar
+export default NavBar
