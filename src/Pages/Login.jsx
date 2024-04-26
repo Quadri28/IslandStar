@@ -1,91 +1,96 @@
-import axios from "axios";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import * as Yup from "yup";
+import React from "react";
+import { Formik, Form, ErrorMessage, Field } from "formik";
 import ErrorText from "../Components/ErrorText";
-import './Login.css'
+import * as Yup from 'yup'
 
 const Login = () => {
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
 
-  const initialValues = {
-    email: "",
-    password: "",
-  };
-  const validationSchema = Yup.object({
-    email: Yup.string().email().required(),
-    password: Yup.string()
-      .required()
-      .min(8, "password must be minimum of 8 character"),
-  });
-  const login = async (values) => {
-    const payload = {
-      email: values.email,
-      password: values.password,
-    };
-    try {
-      const resp = await axios.post(
-        "http://127.0.0.1:8000/api/login",
-        payload,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        }
-      );
-      localStorage.setItem("user-details", JSON.stringify(resp.data));
-      if (resp.data.data.user.is_confirmed === "0") {
-        toast(
-          "You are though registered, but your account is awaiting admin confirmation",
-          { pauseOnHover: true, autoClose: false, type: "success" }
-        );
-      } else if (resp.data.data.user.is_confirmed === "1") {
-        navigate("/dashboard");
-      }
-    } catch (error) {
-      console.log(error)
-      toast(error.response.data.message, {type:'error', autoClose:false, pauseOnHover:true})
-    } 
-  };
+const initialValues={
+    email: '',
+    password:''
+}
+
+const validationSchema = Yup.object({
+    email: Yup.string().email().required().label('Email'),
+    password: Yup.string().required().label('Password'),
+})
+
+const onSubmit=(values)=>{
+    const payload ={
+        email: values.email,
+        password: values.password,
+    }
+    axios.post('', payload, )
+    console.log(payload)
+}
+
   return (
-    <div style={{backgroundColor:'#f2f2f2'}} className="d-flex justify-content-center align-items-center">
-    <div className="form-wrapper card p-3">
-    <h5 className="text-center">Login</h5>
-      <Formik
-        onSubmit={login}
-        initialValues={initialValues}
-        validationSchema={validationSchema}
+    <div
+      className=""
+      style={{
+        backgroundColor: "#411d18",
+        position: "relative",
+        height: "100vh",
+      }}
+    >
+      <div
+        className="card p-3"
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          width: "330px",
+          transform: "translate(-50%, -50%)",
+        }}
       >
-        <Form>
-          <div className="input-container">
-            <label htmlFor="email">
-              Email<sup className="text-danger">*</sup>:
-            </label>
-            <Field name="email" className='p-2' />
-            <ErrorMessage name="email" component={ErrorText}/>
-          </div>
-          <div className="input-container mt-2">
-            <label htmlFor="password" type="password" >
-              Password<sup className="text-danger">*</sup>:
-            </label>
-            <Field name="password" className='p-2' type='password'/>
-            <ErrorMessage name="password" component={ErrorText}/>
-          </div>
-          <div className="d-flex mt-2">
-          <button className="btn btn-md w-100 bg-primary text-white mt-2" type="submit">
-            Login
-          </button>
-          </div>
-        </Form>
-      </Formik>
+        <Formik
+         initialValues={initialValues}
+         validationSchema={validationSchema}
+         onSubmit={onSubmit}
+         >
+          <Form>
+            <h4 className="text-center">Sign In</h4>
+            <div className="row gap-2 justify-content-center mx-auto">
+              <div className="row">
+                <label htmlFor="email">Email:</label>
+                <Field
+                  name="email"
+                  style={{
+                    height: "2.5rem",
+                    borderRadius: "10px",
+                    outline: "none",
+                    border: "solid 1px #cdcdcd",
+                  }}
+                />
+                <ErrorMessage name="email" component={ErrorText} />
+              </div>
+              <div className="row">
+                <label htmlFor="email">Password:</label>
+                <Field
+                  name="password"
+                  type='password'
+                  style={{
+                    height: "2.5rem",
+                    borderRadius: "10px",
+                    outline: "none",
+                    border: "solid 1px #cdcdcd",
+                  }}
+                />
+                <ErrorMessage name="password" component={ErrorText} />
+              </div>
+              <div className="text-center mt-3">
+                <button
+                  type="submit"
+                  className="btn btn-md text-white"
+                  style={{ backgroundColor: "#411d18" }}
+                >
+                  SignIn
+                </button>
+              </div>
+            </div>
+          </Form>
+        </Formik>
       </div>
-      <ToastContainer />
     </div>
   );
 };

@@ -1,28 +1,28 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./Pages/Dashboard";
-import Home from "./Pages/Home";
-import Messages from "./Pages/Messages";
-import Register from "./Pages/Register";
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import Footer from './Components/Footer';
+import About from './Pages/About';
 import Login from './Pages/Login';
-import SendMessage from './Pages/SendMessage';
+import WorkWithUs from './Pages/WorkWithUs';
+
+
 
 function App() {
 
   return (
     <>
+   
     <Router>
-      <>
+    <Navbar/>
         <Routes>
-         <Route path="/" element={<Home/>}/>
-         <Route path="/register" element={<Register />}/>
-         <Route path="/login" element={<Login/>}/>
-         <Route path="/dashboard" element={<Dashboard/>}>
-          <Route path='send-message' element={<SendMessage/>}/>
-         <Route path="messages" element={<Messages/>}/>
-         </Route>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/about-us' element={<About/>}/>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/work-with-us' element={<WorkWithUs/>}/>
         </Routes>
-      </>
+    <Footer/>
     </Router>
     </>
   )

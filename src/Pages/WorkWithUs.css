@@ -1,0 +1,10 @@
+.work-with-us input, .work-with-us select{
+    height: 2rem;
+    border-radius: 8px;
+    border: solid 1px #cdcdcd;
+}
+
+.work-with-us label{
+    font-size: 14px;
+    font-weight: 600;
+}
