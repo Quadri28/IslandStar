@@ -10,7 +10,7 @@ body{
   overflow-y: scroll;
 }
 
-/* @font-face {
+@font-face {
   font-family: 'Helvetica-roman';
   src: local(helvetica), url(./fonts/helvetica-roman/HelveticaRoman.ttf) format('truetype');
 }
@@ -28,4 +28,4 @@ body{
 @font-face {
   font-family: 'Helvetica-Light';
   src: local(Helvetica-light-587ebe5a59211), url(./fonts/helvetica-font/Helvetica-light-587ebe5a59211.ttf) format('truetype');
-} */
+}
