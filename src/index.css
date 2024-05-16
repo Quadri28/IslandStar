@@ -12,20 +12,20 @@ body{
 
 @font-face {
   font-family: 'Helvetica-roman';
-  src: local(helvetica), url(./assets/fonts/helvetica-roman/HelveticaRoman.ttf) format('truetype');
+  src: local(helvetica), url(./fonts/helvetica-roman/HelveticaRoman.ttf) format('truetype');
 }
 
 @font-face {
   font-family: 'Helvetica-Bold';
-  src: local(helvetica), url(./assets/fonts/helvetica/HelveticaNeueBold.otf) format('truetype');
+  src: local(helvetica), url(./fonts/helvetica/HelveticaNeueBold.otf) format('truetype');
 }
 
 @font-face {
   font-family: 'Helvetica';
-  src: local(helvetica), url(./assets/fonts/helvetica/HelveticaNeueLight.otf) format('truetype');
+  src: local(helvetica), url(./fonts/helvetica/HelveticaNeueLight.otf) format('truetype');
 }
 
 @font-face {
   font-family: 'Helvetica-Light';
-  src: local(Helvetica-light-587ebe5a59211), url(./assets/fonts/helvetica-font/Helvetica-light-587ebe5a59211.ttf) format('truetype');
+  src: local(Helvetica-light-587ebe5a59211), url(./fonts/helvetica-font/Helvetica-light-587ebe5a59211.ttf) format('truetype');
 }
