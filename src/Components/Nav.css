@@ -15,12 +15,9 @@
     display: flex;
     align-items: center;
   }
-  .logo{
-    font-size: 30px;
-    margin-right:4rem;
-    font-family: Helvetica-Bold;
-    font-weight: 700;
-  }
+ .logo{
+  flex-grow: 1;
+ }
 
   .nav a{
     font-family: Helvetica;
@@ -39,7 +36,7 @@
     list-style-type: none;
     align-items: center;
     margin-top: 10px;
-    gap: 2.5rem;
+    gap: 1.5rem;
   }
   .nav-elements ul a {
    font-size: 16px;
@@ -53,39 +50,44 @@
     color: #f0990c !important;
   }
 
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #F4FAFD;
-    width: 115%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    left: 50%;
-    transform: translateX(-50%);
+  .dropdown{
+    position: relative;
+    display: inline-block;
   }
-  .dropdown-contents {
-    display: none;
+
+ .dropdown-content {
+    display: none !important;
     position: absolute;
     background-color: #F4FAFD;
-    width: 135%;
+    width: 120%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: 70%;
     left: 50%;
     transform: translateX(-50%);
+    padding: .8rem;
   }
   
-  .dropdown:hover .dropdown-content, .dropdown:hover .dropdown-contents {
-    display:grid;
-    gap: 20px;
-    padding:10px;
+  .dropdown:hover  .dropdown-content{
+    display: block !important;
+    border-radius: 5px;
   }
-  .dropdown-content a, .dropdown-contents a{
-    font-size: 11px !important;
+  .dropdown-content a{
+    font-size: 14px !important;
+    text-transform: capitalize !important;
+    color: #f0990c !important;
   }
+
+   @media screen and (max-width: 900px) {
+    .nav-elements ul{
+      gap: .5rem;
+    }
+   }
   @media (max-width: 768px) {
     .nav-elements ul li:not(:last-child) {
       margin-right: 1rem;
     }
+   
   }
   
   @media (max-width: 768px) {
@@ -100,7 +102,7 @@
       position: absolute;
       right: 0;
       top: 75px;
-      background-color: #fcdd21;
+      background-color: #411d18;
       color: #fff;
       width: 0px;
       height: calc(100vh - 75px);
@@ -135,11 +137,12 @@
     .menu-icon{
       margin-right: 1rem;
     }
-      .dropdown-content{
+      /* .dropdown-content{
     background-color: #f4fafd !important;
-  }
+  } */
+ 
   .dropdown-content a{
-    color: #000 !important;
+    color: #411d18 !important;
   }
   .nav, .container{
     justify-content: space-between;

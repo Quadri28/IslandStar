@@ -1,0 +1,12 @@
+.modal-form-wrapper label{
+    font-size: 14px;
+    font-weight: 600;
+}
+.modal-form-wrapper input, .modal-form-wrapper select{
+    border-radius: 5px;
+    border: solid 1px #ddd;
+    outline: none;
+    padding-inline: 5px;
+    font-size: 14px;
+    height: 2rem;
+}

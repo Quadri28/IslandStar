@@ -10,7 +10,7 @@ import Logo from '../assets/Logo.png'
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#000", padding: "2.5rem 0 .5rem" }}>
-      <div className="container d-sm-flex justify-content-between">
+      <div className="container d-flex flex-wrap justify-content-between gap-3 ">
         <div className="d-flex text-white gap-3 align-items-center">
         <img src={Logo} alt="Logo image" className="img-fluid" style={{width:'3rem'}}/>
           <div className="row" style={{ fontFamily: "Helvetica-Bold", textTransform:'uppercase' }}>
@@ -34,18 +34,48 @@ const Footer = () => {
           className="col-md-6 row gap-3"
           style={{ borderRight: "solid 1px #fff" }}
         >
-          <div className="col-md-5 row mt-3 footer-links gap-3">
+          <div className="col-md-5 row mt-3 justify-content-start footer-links gap-3">
             <h3
               className="text-white"
               style={{ fontSize: "16px", fontFamily: "Helvetica-Bold" }}
             >
               ISLAND FOOTBALL <br /> ACADEMY
             </h3>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/find-academy">Find Your Academy</Link>
-            <Link to="/contact-us">Contact Us</Link>
+            <li><Link to="/contact-us">Contact Us</Link></li> 
             <Link to="/refer-friend">Refer A Friend</Link>
+            <li>
+              <div className="dropdown">
+                <button
+                  className="btn dropdown-toggle text-uppercase text-white"
+                  type="button"
+                >
+                  News & Media
+                </button>
+                <ul className="dropdown-content">
+                 <li>  <Link to='/'>News</Link> </li>
+                 <li>  <Link to='/'>Community Spotlight</Link> </li>
+                 <li>  <Link to='/'>Blogs</Link> </li>
+                 <li>  <Link to='/work-with-us'>Jobs</Link> </li>
+                 <li>  <Link to='/'>Gallery</Link> </li>
+                 <li>  <Link to='/'>Videos</Link> </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div className="dropdown justify-self-start">
+                <button
+                  className="btn text-white dropdown-toggle text-uppercase"
+                  type="button"
+                >
+                  Get Involved
+                </button>
+                <div className="dropdown-content">
+                   <Link to='/'>Sponsors & Partners</Link> 
+                   <Link to='/'>Advertise with us</Link> 
+                   <Link to='/'>Volunteer Opportunities</Link>
+                </div>
+              </div>
+            </li>
           </div>
           <div className="col-md-5 row mt-3 footer-links">
             <h3
