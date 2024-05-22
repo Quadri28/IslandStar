@@ -1,8 +1,8 @@
 .hero-floater{
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 .hero-heading{
@@ -22,9 +22,6 @@
 }
 
 @media screen and (max-width: 980px) {
-    .hero-floater{
-        top: 20%;
-    }
     .hero-heading{
         font-size: 50px;
         line-height: 55px;
@@ -37,29 +34,32 @@
 }
 
 @media screen and (max-width: 700px) {
-    .hero-floater{
-        top: 10%;
-    }
     .hero-heading{
-        font-size: 30px;
+        font-size: 40px;
         line-height: 35px;
     }
     .hero-enroll-btn{
     padding: 10px 15px;
     margin-top: .5rem;
     }
+    .slide img{
+        width: 10rem;
+        height: 10rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
-    .hero-floater{
-        top: 6%;
-    }
+    
     .hero-heading{
-        font-size: 20px;
-        line-height: 23px;
+        font-size: 30px;
+        line-height: 35px;
     }
     .hero-enroll-btn{
     padding: 6px 8px;
     margin-top: 0;
+    }
+    .slide img{
+        width: 6rem;
+        height: 6rem;
     }
 }

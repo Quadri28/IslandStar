@@ -27,14 +27,13 @@ const Footer = () => {
       </div>
 
       <div
-        className="mt-3 container row mx-auto"
+        className="mt-3 container footer-inner-container mx-auto"
         style={{ borderTop: "solid 1px #fff" }}
       >
         <div
-          className="col-md-6 row gap-3"
-          style={{ borderRight: "solid 1px #fff" }}
+          className="row gap-3 border-righty"
         >
-          <div className="col-md-5 row mt-3 justify-content-start footer-links gap-3">
+          <div className="col-sm-5 row mt-3 justify-content-start footer-links gap-3">
             <h3
               className="text-white"
               style={{ fontSize: "16px", fontFamily: "Helvetica-Bold" }}
@@ -46,7 +45,7 @@ const Footer = () => {
             <li>
               <div className="dropdown">
                 <button
-                  className="btn dropdown-toggle text-uppercase text-white"
+                  className="btn dropdown-toggle text-uppercase text-white p-0"
                   type="button"
                 >
                   News & Media
@@ -62,14 +61,14 @@ const Footer = () => {
               </div>
             </li>
             <li>
-              <div className="dropdown justify-self-start">
+              <div className="dropdown" style={{listStyle:'initial'}}>
                 <button
-                  className="btn text-white dropdown-toggle text-uppercase"
+                  className="btn text-white dropdown-toggle text-uppercase p-0"
                   type="button"
                 >
                   Get Involved
                 </button>
-                <div className="dropdown-content">
+                <div className="dropdown-content" >
                    <Link to='/'>Sponsors & Partners</Link> 
                    <Link to='/'>Advertise with us</Link> 
                    <Link to='/'>Volunteer Opportunities</Link>
@@ -77,7 +76,7 @@ const Footer = () => {
               </div>
             </li>
           </div>
-          <div className="col-md-5 row mt-3 footer-links">
+          <div className="row col-sm-6 gap-3 mt-3 footer-links">
             <h3
               className="text-white"
               style={{ fontSize: "16px", fontFamily: "Helvetica-Bold" }}
@@ -91,11 +90,9 @@ const Footer = () => {
             <Link to="/refer-friend">Social media guidelines</Link>
           </div>
         </div>
-        <div className="col-md-6 px-4">
-          <h3
-            style={{ fontFamily: "Helvetica-Bold" }}
-            className="text-white mb-3"
-          >
+        <div>
+          <h3 style={{ fontFamily: "Helvetica-Bold" }}
+           className="text-white mb-3">
             SUBSCRIBE TO OUR NEWSLETTER
           </h3>
           <form>

@@ -26,9 +26,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { AutoScroll } from "@splidejs/splide-extension-auto-scroll";
 import "@splidejs/splide/dist/css/splide.min.css";
+import useScreenSize from "../Components/ScreenSizeHook";
 
 const Home = () => {
   
+  const screenSize = useScreenSize()
 
   return (
     <>
@@ -53,7 +55,7 @@ const Home = () => {
         <img src={hero} alt="hero image" className="img-fluid" />
       </div>
       <div style={{ backgroundColor: "#411d18" }} className="py-4">
-        <div className="text-center row mx-auto container">
+        <div className="text-center row mx-auto container my-4">
           <h3
             style={{
               fontSize: "35px",
@@ -208,10 +210,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div
-        className="row text-center gap-3 py-4 px-2 mt-3"
-        style={{ backgroundColor: "#411d18", color: "#fff" }}
-      >
+      <div  style={{ backgroundColor: "#411d18", color: "#fff" }} className="py-4 px-2 mt-3">
+        <h3 className="text-center mb-4 text-uppercase" style={{fontSize:'35px', fontWeight:'700'}}>Our Players</h3>
+      <div className="row text-center gap-3">
        <Splide
           options={{
             type: "loop",
@@ -219,7 +220,7 @@ const Home = () => {
             drag: "free",
             arrows: false,
             pagination: false,
-            perPage: 5,
+            perPage: screenSize.width > 900 ? 5 : screenSize.width < 780 ? 3 :  2,
             autoScroll: {
               pauseOnHover: false,
               pauseOnFocus: false,
@@ -283,6 +284,7 @@ const Home = () => {
        </Splide>
         
       <ToastContainer/>
+      </div>
       </div>
       <SignupModal />
     </>

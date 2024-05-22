@@ -78,9 +78,13 @@
     color: #f0990c !important;
   }
 
-   @media screen and (max-width: 900px) {
+   @media screen and (max-width: 980px) {
     .nav-elements ul{
-      gap: .5rem;
+      display: flex;
+      gap: .5rem !important;
+    }
+    .nav-elements ul button, .nav-elements ul a{
+      font-size: 13px;
     }
    }
   @media (max-width: 768px) {

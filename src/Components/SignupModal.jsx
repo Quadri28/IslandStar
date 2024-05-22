@@ -3,12 +3,12 @@ import React, { useEffect, useState } from 'react'
 import * as Yup from 'yup'
 import ErrorText from './ErrorText'
 import './SignupModal.css'
-import axios from 'axios'
+import axios from './axios'
 import {toast, ToastContainer} from 'react-toastify'
 
-const SignupModal = () => {
 
-    const [numbers, setNumbers]= useState([])
+const SignupModal = () => {
+const [numbers, setNumbers]= useState([])
 const initialValues ={
     firstName:'',
     lastName:'',
@@ -41,7 +41,7 @@ const validationSchema= Yup.object({
     dateOfBirth: Yup.string().required().label('Date of Birth'),
     schoolName: Yup.string().label('Last Class'),
     guardianName:Yup.string().required().label('Guardian Name'),
-    phoneNumber: Yup.string().matches(phoneRegex, 'Invalid phone number').required().label("Guardian's Phone"),
+    phoneNumber: Yup.string().matches(phoneRegex, 'Invalid phone number').required().label("Parent's Phone"),
     email: Yup.string().email().required().label('Guardian Name'),
     emergencyNumber: Yup.string().matches(phoneRegex, 'Invalid phone number').required().label("Emergency Phone No"),
     emergencyRelationship: Yup.string().required().label("Emergency Relationship"),
@@ -53,9 +53,8 @@ const validationSchema= Yup.object({
 })
 
 const getNumbers=()=>{
-    axios('http://127.0.0.1:8000/api/numbers').then(resp=>setNumbers(resp.data))
+    axios('numbers').then(resp=>setNumbers(resp.data))
 }
-
 const onSubmit =(Values)=>{
 const payload ={
     first_name: Values.firstName,
@@ -79,7 +78,7 @@ const payload ={
     jersey_number: Values.numberOnJersey
 }
 
-axios.post('http://127.0.0.1:8000/api/signup', payload, {headers:{
+axios.post('signup', payload, {headers:{
     Authorization: `Bearer `
 }}).then(()=>toast('Your registration was successful', 
 {type:'success', autoClose:5000, pauseOnHover:true}))
@@ -117,33 +116,34 @@ useEffect(()=>{
               >
                 <Form>
               <div className="row justify-content-between g-2  modal-form-wrapper">
+                <h6>Player's Info:</h6>
                 <div className="col-md-6">
-                    <label htmlFor="firstName">Player's First name<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="firstName"> First name<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='firstName' />
                     <ErrorMessage name='firstName' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="lastName">Player's Last name<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="lastName"> Last name<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='lastName' />
                     <ErrorMessage name='lastName' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="address">Player's address<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="address">Address<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='address' />
                     <ErrorMessage name='address' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="state">Player's state<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="state">State<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='state' />
                     <ErrorMessage name='state' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="city">Player's city<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="city">City<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='city' />
                     <ErrorMessage name='city' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="gender">Player's gender<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="gender">Gender<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='gender' as='select'>
                         <option value="">Select Gender</option>
                         <option value="Male">Male</option>
@@ -152,30 +152,32 @@ useEffect(()=>{
                     <ErrorMessage name='gender' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="dateOfBirth">Player's Date of Birth<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="dateOfBirth"> Date of Birth<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' name='dateOfBirth' type='date'/>
                     <ErrorMessage name='dateOfBirth' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="schoolName">Player's School:</label>
+                    <label htmlFor="schoolName"> School:</label>
                     <Field className='w-100' type="text" name='schoolName' />
                     <ErrorMessage name='schoolName' component={ErrorText}/>
                 </div>
+                <h6>Parent's Info:</h6>
                 <div className="col-md-6">
-                    <label htmlFor="guardianName">Guardian's Name<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="guardianName">Name<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='guardianName' />
                     <ErrorMessage name='guardianName' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="phoneNumber">Guardian's Phone Number<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="phoneNumber">Phone Number<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='phoneNumber' />
                     <ErrorMessage name='phoneNumber' component={ErrorText}/>
                 </div>
                 <div className="col-md-6">
-                    <label htmlFor="email">Guardian's Email<sup className='text-danger'>*</sup>:</label>
+                    <label htmlFor="email">Email<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='email' />
                     <ErrorMessage name='email' component={ErrorText}/>
                 </div>
+                <h6>Emergency Info:</h6>
                 <div className="col-md-6">
                     <label htmlFor="emergencyNumber">Phone Number in Emergency<sup className='text-danger'>*</sup>:</label>
                     <Field className='w-100' type="text" name='emergencyNumber' />

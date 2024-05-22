@@ -4,3 +4,18 @@
     text-transform: uppercase;
     font-size: 14px;
 }
+.footer-inner-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+@media screen and (max-width:780px){
+.footer-inner-container{
+    grid-template-columns: 1fr;
+}
+}
+@media screen and (min-width:780px) {
+    .border-righty{
+        border-right: solid 1px #fff;
+    }
+}

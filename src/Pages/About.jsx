@@ -1,6 +1,7 @@
 import React from "react";
 import "./About.css";
 import about from '../assets/about.jpeg'
+import SignupModal from "../Components/SignupModal";
 
 const About = () => {
   return (
@@ -17,6 +18,8 @@ const About = () => {
               fontWeight: "500",
               fontFamily: "helvetica",
             }}
+            data-bs-toggle="modal"
+            data-bs-target="#signup"
           >
             Enroll here
           </button>
@@ -124,6 +127,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      <SignupModal />
     </>
   );
 };
